@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static  %}
+
+{% block content %}
+
+
+<div class="container text-center" style="padding-top: 120px; padding-bottom: 100px;">
+    <h1 class="">{% trans 'Search Results for' %} <span class="text-success">"{{ query }}"</span></h1>
+
+    {% if products %}
+    <h1>Products Pages</h1>
+    <ul>
+        {% for product in products %}
+        <li><a href="{% url 'product_list' %}" style="text-decoration: underline !important; font-size: large;">{{ product.title|safe }}
+                <div class="image"><img src="{{ product.image.url }}" style="height: 300px; width: 490px;" ></div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>{% trans 'No results found.' %}</p>
+    {% endif %}
+    <br>
+
+</div>
+{% endblock %}

@@ -1,0 +1,6 @@
+myvenv
+/myvenv/
+
+/__pychave__/.
+
+/db.sqlite3/
